@@ -25,6 +25,10 @@ Import
 [`4 - Property Assessment Gold Marts.ipynb`](../Notebooks/4%20-%20Property%20Assessment%20Gold%20Marts.ipynb)
 as a starting point.
 
+Keep `appeal_ai_source_table` set to `fact_appeal_ai` for the built-in Fabric AI
+path. Change it to `fact_appeal_foundry_ai` when you completed the alternate
+Foundry path in notebook 3a. Both tables expose the same `ai_*` signal columns.
+
 Recommended marts:
 
 | Mart | Business questions |

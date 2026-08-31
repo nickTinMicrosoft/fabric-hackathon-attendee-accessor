@@ -32,6 +32,19 @@ Use the built-in functions appropriate to your Fabric runtime:
 
 Reference: [AI functions in Fabric](https://learn.microsoft.com/fabric/data-science/ai-functions/overview)
 
+### Alternate Foundry path
+
+After notebook 3 creates `dbo.fact_appeal`, you may use
+[`3a - ADLS Appeals with Foundry AI.ipynb`](../Notebooks/3a%20-%20ADLS%20Appeals%20with%20Foundry%20AI.ipynb)
+instead of the built-in AI cells. Notebook 3a calls a chat-model deployment,
+requires structured JSON output, validates every response, and writes
+`dbo.fact_appeal_foundry_ai`.
+
+The suggested Variable Library name is `HackathonVariables`. Its active value
+set supplies `foundry_endpoint`, `chat_deployment`, and `api_version`. Use
+Key Vault variables for key authentication or leave them blank to use Entra
+authentication. Do not paste credentials into the notebook.
+
 ## Classification taxonomy
 
 Start with these supplied categories, then document any changes:

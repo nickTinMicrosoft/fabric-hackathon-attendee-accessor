@@ -25,6 +25,9 @@ names. Obtain connection details and credentials from your facilitator.
 5. Confirm that `Jurisdiction`, `Parcel`, `Building`, `Assessment`, `Sale`,
    `TaxRate`, `Neighborhood`, and `PropertyClass` appear.
 
+`Property Assessment SQL Mirror` is the suggested Fabric item name. A different
+name is supported by changing `sql_mirror_item` in notebook 1.
+
 Do not paste credentials into a notebook or commit them to this repository.
 
 Reference: [Mirror Azure SQL Database in Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/azure-sql-database)
@@ -35,6 +38,10 @@ Reference: [Mirror Azure SQL Database in Fabric](https://learn.microsoft.com/fab
 2. Connect to the account provided by the facilitator.
 3. Select the database and `properties` container.
 4. Confirm that property-profile fields and nested inspection data are visible.
+
+`Property Profiles Mirror` is the suggested Fabric item name. A different name
+is supported by changing `cosmos_mirror_item` in notebook 2 or when prompting
+Copilot to generate that notebook's parameter cell.
 
 Reference: [Mirror Azure Cosmos DB in Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/azure-cosmos-db)
 

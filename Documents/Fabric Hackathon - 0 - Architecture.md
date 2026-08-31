@@ -8,6 +8,48 @@ title: Architecture and data schemas
 The lab environment supplies three source services. Their resource names and
 credentials vary by environment, so the architecture uses logical names only.
 
+## Lab naming conventions
+
+The notebooks rely on a small naming contract. Required names keep the
+medallion flow consistent; suggested names can be changed in notebook parameter
+cells.
+
+| Item | Required or suggested name | Where it is referenced |
+|---|---|---|
+| Bronze Lakehouse | **Required:** `BronzeLakehouse` | Notebook 3 and the ADLS shortcut |
+| Silver Lakehouse | **Required:** `SilverLakehouse` | Notebooks 1, 2, 3, and 3a |
+| Gold Lakehouse | **Required:** `GoldLakehouse` | Notebook 4 |
+| Silver and Gold schema | **Required:** `dbo` | Managed Delta table names |
+| ADLS shortcut | **Required:** `appeals` under `BronzeLakehouse/Files` | Appeal Parquet path |
+| SQL mirrored database | **Suggested:** `Property Assessment SQL Mirror` | `sql_mirror_item` in notebook 1 |
+| Cosmos mirrored database | **Suggested:** `Property Profiles Mirror` | `cosmos_mirror_item` in notebook 2 |
+| Foundry Variable Library | **Suggested:** `HackathonVariables` | `variable_library_name` in notebook 3a |
+| Gold semantic model | **Suggested:** `Property Assessment Model` | Goal 4 |
+| Power BI report | **Suggested:** `Property Assessment Insights` | Goal 4 |
+| Fabric data agent | **Suggested:** `Property Assessment Agent` | Goal 4 |
+
+Create `SilverLakehouse` and `GoldLakehouse` with **Lakehouse schemas enabled**.
+Mirror names are deliberately dynamic: update the parameter value instead of
+renaming an environment-owned Fabric item. If a required Lakehouse or shortcut
+name must change, update every dependent notebook parameter or path before
+running the labs.
+
+### Foundry Variable Library values
+
+Notebook 3a reads environment configuration from the active value set in the
+Variable Library. Define:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `foundry_endpoint` | Yes | Azure OpenAI-compatible model endpoint exposed by the Foundry resource |
+| `chat_deployment` | Yes | Chat-model deployment name |
+| `api_version` | Yes | API version supported by the deployment |
+| `key_vault_uri` | Only for key authentication | Key Vault URI containing the API key |
+| `foundry_key_secret_name` | Only for key authentication | Secret name holding the API key |
+
+When the Key Vault variables are blank, notebook 3a uses the notebook user's
+Entra token. Never place an endpoint key directly in a committed notebook.
+
 ## End-to-end architecture
 
 ```mermaid
@@ -246,7 +288,7 @@ other to compare schema inference and performance.
 | `property_profile` | one row per parcel profile | Cosmos DB |
 | `fact_inspection` | one row per inspection | Cosmos DB |
 | `fact_appeal` | one row per appeal | ADLS |
-| `fact_appeal_ai` | one row per enriched appeal | ADLS plus Fabric AI functions |
+| `fact_appeal_ai` or `fact_appeal_foundry_ai` | one row per enriched appeal | ADLS plus the selected AI path |
 
 ## Recommended Gold marts
 

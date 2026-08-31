@@ -25,10 +25,15 @@ Delta tables in a `SilverLakehouse`.
 3. Set its SQL mirror item parameter and run every cell.
 4. Import
    [`2 - Cosmos Property Profiles to Silver.ipynb`](../Notebooks/2%20-%20Cosmos%20Property%20Profiles%20to%20Silver.ipynb).
-5. Set its Cosmos mirror item parameter and run every cell.
+5. Follow its Markdown prompts to use Fabric Copilot to generate each code
+   cell. Set the Cosmos mirror item parameter to the actual lab item name.
 6. Import
    [`3 - ADLS Appeals to Silver and AI.ipynb`](../Notebooks/3%20-%20ADLS%20Appeals%20to%20Silver%20and%20AI.ipynb).
 7. Run the ingestion and conformance cells now; the AI cells are used in Goal 3.
+
+The completed notebook implementations are retained under
+[`Notebooks/Answers`](../Notebooks/Answers/) for facilitator support and
+post-exercise comparison.
 
 ## Transformation requirements
 

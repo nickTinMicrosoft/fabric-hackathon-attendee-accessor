@@ -40,7 +40,7 @@ reference notebooks when you need a starting point.
 | Folder | Contents |
 |---|---|
 | [`Documents`](Documents/) | Introduction, architecture, goals, success criteria, and Microsoft Learn links |
-| [`Notebooks`](Notebooks/) | Importable Fabric notebooks for Silver transformation, AI enrichment, Gold marts, and a data-agent lab |
+| [`Notebooks`](Notebooks/) | Importable Fabric notebooks for Silver transformation, Copilot-guided development, AI enrichment, Gold marts, and a data-agent lab |
 | `DataFiles` | Optional local files supplied by the facilitator |
 | `Scripts` | Space for scripts created during the challenge |
 
@@ -54,6 +54,8 @@ reference notebooks when you need a starting point.
 
 The source server names, database names, storage accounts, and credentials are
 environment-specific and are intentionally not stored in this repository.
+Use the [lab naming conventions](Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.md#lab-naming-conventions)
+so the notebooks can resolve shared workspace items.
 
 ## Data safety
 
