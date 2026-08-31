@@ -1,7 +1,7 @@
 # Microsoft Fabric Property Assessment Hackathon
 
-Build an end-to-end analytics and AI solution for the fictional municipality of
-Sudsberry. You will combine property valuation records, flexible inspection
+Build an end-to-end analytics and AI solution using fictional property data for
+Sudsberry. You will combine synthetic valuation records, flexible inspection
 documents, and assessment appeal narratives in Microsoft Fabric.
 
 All records are synthetic. They do not represent real people, addresses,

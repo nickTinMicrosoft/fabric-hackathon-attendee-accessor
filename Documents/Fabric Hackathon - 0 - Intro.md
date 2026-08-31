@@ -5,8 +5,8 @@ title: Introduction
 
 # Property Assessment Analytics and AI
 
-Sudsberry is a fictional municipality modernizing its property-assessment data
-platform. Its information is split across three systems:
+This lab uses fictional property-assessment data for Sudsberry. The synthetic
+scenario organizes its information across three systems:
 
 - relational parcel, building, assessment, sale, and tax-rate records
 - flexible property profiles and field-inspection documents
@@ -60,9 +60,9 @@ naming contract.
 
 ## Safety statement
 
-The municipality, addresses, parcels, inspections, appeals, values, sales, and
-tax calculations are fabricated. Nothing in this challenge represents a real
-taxpayer or an authoritative assessment policy.
+The addresses, parcels, inspections, appeals, values, sales, and tax
+calculations are fabricated. Nothing in this challenge represents a real
+taxpayer, property record, or authoritative assessment policy.
 
 ---
 

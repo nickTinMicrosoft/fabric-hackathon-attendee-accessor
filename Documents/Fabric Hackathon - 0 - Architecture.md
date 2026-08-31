@@ -106,7 +106,7 @@ in participant assets.
 | Column | Type | Description |
 |---|---|---|
 | `JurisdictionId` | integer, primary key | Synthetic jurisdiction identifier |
-| `JurisdictionName` | string | Fictional municipality name |
+| `JurisdictionName` | string | Municipality label associated with the synthetic records |
 | `CountryCode` | two-character string | Configurable country code |
 | `RegionCode` | string | Configurable province or state code |
 | `CurrencyCode` | three-character string | Reporting currency |
