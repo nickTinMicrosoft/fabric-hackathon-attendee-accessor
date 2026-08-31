@@ -11,7 +11,7 @@ the lab without embedding Azure server, database, or storage names.
 | 3 | `3 - ADLS Appeals to Silver and AI.ipynb` | Load appeal Parquet, enforce schema, and add AI-derived signals |
 | 3a | `3a - ADLS Appeals with Foundry AI.ipynb` | Alternate Foundry chat-model enrichment using a Variable Library |
 | 4 | `4 - Property Assessment Gold Marts.ipynb` | Build joined analytical marts in the Gold Lakehouse |
-| 5 | `5 - Property Assessment Data Agent Lab.ipynb` | Configure grounding instructions and evaluate natural-language questions |
+| 5 | `5 - Property Assessment Data Agent Lab.ipynb` | Build the Gold ontology, configure agent grounding, and evaluate relationship-aware questions |
 
 Completed reference versions are available in [`Answers`](Answers/). Notebook 2
 in the main folder intentionally contains only Markdown instructions, Copilot
@@ -24,6 +24,7 @@ prompts, and empty code cells.
 - `BronzeLakehouse` with an `appeals` shortcut
 - `SilverLakehouse` with Lakehouse schemas enabled
 - `GoldLakehouse` with Lakehouse schemas enabled
+- `PropertyAssessmentOntology` created during Goal 4
 - `HackathonVariables` when using the optional Foundry notebook
 
 If your facilitator uses different Fabric item names, change the parameter cell

@@ -29,6 +29,7 @@ Use these names unless your facilitator provides alternatives:
 | SQL mirrored database | Suggested: `Property Assessment SQL Mirror` |
 | Cosmos mirrored database | Suggested: `Property Profiles Mirror` |
 | Foundry Variable Library | Suggested: `HackathonVariables` |
+| Fabric ontology | Required for Goal 4: `PropertyAssessmentOntology` |
 | Managed table schema | `dbo` |
 
 The three Lakehouse names and `dbo` schema are used directly by the notebooks.
@@ -55,7 +56,7 @@ naming contract.
 3. **Create AI-derived appeal signals.** Add sentiment, summary, classification,
    and urgency fields without changing the original narrative.
 4. **Deliver business-ready analytics.** Build Gold marts, a semantic model, a
-   report, and a data agent grounded only in curated data.
+   report, a Fabric ontology, and an ontology-grounded data agent.
 
 ## Safety statement
 

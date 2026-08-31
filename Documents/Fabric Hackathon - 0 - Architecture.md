@@ -26,6 +26,7 @@ cells.
 | Foundry Variable Library | **Suggested:** `HackathonVariables` | `variable_library_name` in notebook 3a |
 | Gold semantic model | **Suggested:** `Property Assessment Model` | Goal 4 |
 | Power BI report | **Suggested:** `Property Assessment Insights` | Goal 4 |
+| Fabric ontology | **Required:** `PropertyAssessmentOntology` | Goal 4 and notebook 5 |
 | Fabric data agent | **Suggested:** `Property Assessment Agent` | Goal 4 |
 
 Create `SilverLakehouse` and `GoldLakehouse` with **Lakehouse schemas enabled**.
@@ -71,9 +72,17 @@ flowchart LR
     SILVER --> GOLD[Gold Lakehouse or Warehouse\nBusiness marts]
 
     GOLD --> MODEL[Direct Lake semantic model]
+    GOLD --> ONTOLOGY[Fabric ontology\nBusiness entities and relationships]
     MODEL --> REPORT[Power BI report]
-    MODEL --> AGENT[Fabric data agent]
+    ONTOLOGY --> AGENT[Fabric data agent]
 ```
+
+The semantic model and ontology have different jobs. The semantic model
+provides report relationships, measures, and business calculations. The
+ontology binds Gold rows to `Property`, `Neighborhood`, `ComparableSale`, and
+`Appeal` entities and exposes their relationships to agents and graph queries.
+See the [Goal 4 ontology guide](Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.md)
+for the complete binding contract.
 
 ## Shared business keys
 
@@ -300,6 +309,23 @@ other to compare schema inference and performance.
   classification, and urgency.
 - `neighborhood_equity_mart`: valuation, sales-ratio, appeal-rate, and sentiment
   aggregates by neighbourhood.
+
+## Recommended ontology model
+
+`PropertyAssessmentOntology` binds directly to the managed Gold marts:
+
+```mermaid
+flowchart LR
+    SALE[ComparableSale] -->|recordsFor| PROPERTY[Property]
+    APPEAL[Appeal] -->|submittedFor| PROPERTY
+    PROPERTY -->|locatedIn| NEIGHBORHOOD[Neighborhood]
+    APPEAL -->|occursIn| NEIGHBORHOOD
+```
+
+Entity keys are `parcel_id`, `neighborhood_id`, `sale_id`, and `appeal_id`.
+Relationship bindings use the Gold table that contains both endpoint keys.
+The original appeal narrative is excluded from ontology bindings; the governed
+AI summary and classification fields remain available.
 
 ---
 

@@ -13,7 +13,8 @@ property characteristics, inspections, and AI-enriched appeals.
 - reusable Gold marts
 - a star-schema semantic model
 - a Power BI report
-- a Fabric data agent grounded in curated data
+- a Fabric ontology bound to curated Gold data
+- a Fabric data agent grounded in the ontology
 - documented limitations and safety guidance
 
 ## Build the Gold layer
@@ -59,6 +60,25 @@ Suggested measures:
 
 Reference: [Star schema guidance](https://learn.microsoft.com/power-bi/guidance/star-schema)
 
+## Fabric ontology
+
+Create `PropertyAssessmentOntology` directly from the managed tables in
+`GoldLakehouse`. Model these entity types:
+
+- `Property`
+- `Neighborhood`
+- `ComparableSale`
+- `Appeal`
+
+Connect them with `locatedIn`, `recordsFor`, `submittedFor`, and `occursIn`
+relationships. Bind only curated properties and AI-derived appeal summaries;
+do not bind the original appeal narrative.
+
+Follow the
+[Goal 4 ontology guide](Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.md)
+for the exact keys, property mappings, relationship mappings, refresh steps,
+preview constraints, and validation questions.
+
 ## Report ideas
 
 1. **Assessment overview:** values, taxes, classes, and neighbourhood trends.
@@ -74,9 +94,10 @@ Import
 [`5 - Property Assessment Data Agent Lab.ipynb`](../Notebooks/5%20-%20Property%20Assessment%20Data%20Agent%20Lab.ipynb)
 for grounding instructions and evaluation questions.
 
-The agent must:
+Add `PropertyAssessmentOntology` as the agent's only data source for this
+exercise. The agent must:
 
-- use only curated Gold tables or the semantic model
+- reason through the ontology's entities and relationships
 - state that values and taxes are synthetic
 - distinguish assessed value from sale price
 - avoid presenting AI sentiment as an appeal decision
@@ -91,8 +112,9 @@ Demonstrate one traceable story from source to decision support:
 1. select a neighbourhood or property class
 2. identify a valuation or comparable-sales pattern
 3. inspect associated appeal themes
-4. explain the result through the report or data agent
-5. show the source keys and transformations supporting the answer
+4. traverse at least one ontology relationship
+5. explain the result through the report or ontology-grounded data agent
+6. show the source keys and transformations supporting the answer
 
 ---
 

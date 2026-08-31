@@ -10,7 +10,8 @@ created in the preceding goal.
 | 1 | [Connect the sources](Fabric%20Hackathon%20-%20Goal%201.md) | SQL and Cosmos mirrors plus an ADLS shortcut |
 | 2 | [Build Silver](Fabric%20Hackathon%20-%20Goal%202.md) | Conformed Delta dimensions and facts |
 | 3 | [Apply AI](Fabric%20Hackathon%20-%20Goal%203.md) | Enriched appeal signals with evaluation results |
-| 4 | [Build Gold and serve](Fabric%20Hackathon%20-%20Goal%204.md) | Business marts, semantic model, report, and data agent |
+| 4 | [Build Gold and serve](Fabric%20Hackathon%20-%20Goal%204.md) | Business marts, semantic model, report, ontology, and data agent |
+| 4 | [Model the ontology](Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.md) | Gold entity bindings, graph relationships, and ontology-grounded questions |
 
 Import the starter notebooks from [`../Notebooks`](../Notebooks/) when directed
 by a goal. Source connection details are supplied separately by the

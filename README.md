@@ -14,7 +14,9 @@ Azure SQL -----------+
                      +--> OneLake Bronze --> Silver Delta --> Gold marts
 Cosmos DB -----------+                           |               |
                                                  |               +--> Power BI
-ADLS JSON/Parquet --> OneLake shortcut ----------+               +--> Data agent
+ADLS JSON/Parquet --> OneLake shortcut ----------+               +--> Ontology
+                                                 |                       |
+                                                 |                       +--> Data agent
                                                  |
                                                  +--> AI-enriched appeals
 ```
@@ -24,7 +26,8 @@ The challenge follows four goals:
 1. Connect Azure SQL, Cosmos DB, and ADLS Gen2 to Fabric.
 2. Transform the source data into conformed Silver tables.
 3. use Fabric AI functions to analyze assessment appeal narratives.
-4. build Gold marts, a semantic model, a report, and a data agent.
+4. build Gold marts, a semantic model, a report, an ontology, and an
+   ontology-grounded data agent.
 
 There are no time limits. Work through the goals at your own pace and use the
 reference notebooks when you need a starting point.
@@ -48,9 +51,11 @@ reference notebooks when you need a starting point.
 
 - access to a Microsoft Fabric workspace on a capacity that supports notebooks
 - permission to create Lakehouses, mirrored databases, shortcuts, semantic
-  models, reports, and data agents
+  models, reports, ontology items, and data agents
 - source connection details provided by the facilitator
 - Fabric AI functions enabled for Goal 3
+- Fabric Ontology (preview) enabled for Goal 4
+- Fabric data agent and required Copilot tenant settings enabled for Goal 4
 
 The source server names, database names, storage accounts, and credentials are
 environment-specific and are intentionally not stored in this repository.
@@ -73,4 +78,5 @@ so the notebooks can resolve shared workspace items.
 | [Goal 1](Documents/Fabric%20Hackathon%20-%20Goal%201.md) | Create the Bronze layer using mirroring and a shortcut |
 | [Goal 2](Documents/Fabric%20Hackathon%20-%20Goal%202.md) | Produce clean, conformed Silver Delta tables |
 | [Goal 3](Documents/Fabric%20Hackathon%20-%20Goal%203.md) | Enrich appeal narratives with AI-derived signals |
-| [Goal 4](Documents/Fabric%20Hackathon%20-%20Goal%204.md) | Deliver Gold marts, analytics, and natural-language Q&A |
+| [Goal 4](Documents/Fabric%20Hackathon%20-%20Goal%204.md) | Deliver Gold marts, analytics, ontology, and natural-language Q&A |
+| [Goal 4 ontology](Documents/Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.md) | Bind Gold entities and relationships and ground the data agent |
