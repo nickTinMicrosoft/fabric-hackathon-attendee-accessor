@@ -1,0 +1,20 @@
+title: Fabric Property Assessment Hackathon
+description: Hands-on Microsoft Fabric analytics and AI challenge
+url: https://nicktinmicrosoft.github.io
+baseurl: /fabric-hackathon-attendee-accessor
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+
+# Keep generated outputs out of the published site.
+exclude:
+  - .gitignore
+  - .vscode/
+  - pdf/
+  - Videos/
+  - old_versions/
+  - Documents/old_versions/

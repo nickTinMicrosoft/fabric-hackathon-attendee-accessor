@@ -1,0 +1,21 @@
+# Personal notes
+notes.txt
+
+# Environment variables
+.env
+.env.*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.sass-cache/
