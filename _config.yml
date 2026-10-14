@@ -7,6 +7,8 @@ markdown: kramdown
 plugins:
   - jekyll-relative-links
   - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
 access_api_url: ""
 repository_url: https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor
 defaults:

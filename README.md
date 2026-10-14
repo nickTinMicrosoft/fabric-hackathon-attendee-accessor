@@ -134,3 +134,5 @@ The custom Jekyll plugin decodes percent-escaped filenames before the bundled
 relative-link resolver looks them up. This keeps the same Markdown links usable
 on GitHub and on Pages even though the guide filenames contain spaces. Publish
 through the Actions workflow, not GitHub's restricted branch-source build.
+The Gemfile retains Pages-compatible dependency versions without auto-loading
+the Pages gem's restricted plugin-directory overrides.
