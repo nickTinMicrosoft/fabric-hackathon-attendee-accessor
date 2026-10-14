@@ -32,7 +32,7 @@ Delta tables in a `SilverLakehouse`.
 7. Run the ingestion and conformance cells now; the AI cells are used in Goal 3.
 
 The completed notebook implementations are retained under
-[`Notebooks/Answers`](../Notebooks/Answers/) for facilitator support and
+[`Notebooks/Answers`](https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor/tree/main/Notebooks/Answers) for facilitator support and
 post-exercise comparison.
 
 ## Transformation requirements

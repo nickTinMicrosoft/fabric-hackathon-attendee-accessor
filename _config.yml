@@ -6,6 +6,14 @@ theme: minima
 markdown: kramdown
 plugins:
   - jekyll-relative-links
+  - jekyll-optional-front-matter
+access_api_url: ""
+repository_url: https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
 relative_links:
   enabled: true
   collections: true
@@ -18,3 +26,12 @@ exclude:
   - Videos/
   - old_versions/
   - Documents/old_versions/
+  - api/
+  - tests/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - playwright.config.js
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE

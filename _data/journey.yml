@@ -1,0 +1,21 @@
+- title: Welcome
+  label: Start
+  url: /Documents/Fabric%20Hackathon%20-%200%20-%20Intro.html
+- title: Architecture & naming
+  label: Plan
+  url: /Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.html
+- title: Connect your sources
+  label: Goal 1
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%201.html
+- title: Build the Silver layer
+  label: Goal 2
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%202.html
+- title: Enrich appeals with AI
+  label: Goal 3
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%203.html
+- title: Build Gold & serve insights
+  label: Goal 4
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%204.html
+- title: Connect the ontology
+  label: Deep dive
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.html

@@ -1,0 +1,118 @@
+---
+layout: home
+title: Your hackathon starts here
+---
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Microsoft Fabric &middot; Hands-on hackathon</p>
+    <h1>From scattered data.<br>To a story that <em>matters.</em></h1>
+    <p class="hero-description">Welcome to Sudsberry. Bring property records, inspections, and appeals together. Build trusted analytics. Give your data a voice with AI.</p>
+    <div class="actions"><a class="button" href="#get-ready">Let's get you ready <span aria-hidden="true">&#8594;</span></a><a class="button secondary" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Intro.html' | relative_url }}">Read the introduction</a></div>
+    <div class="hero-meta"><span>4 connected goals</span><span>50 lab accounts</span><span>Your pace, no timer</span></div>
+  </div>
+  <div class="architecture-card" aria-label="Lab architecture: SQL, Cosmos DB, and ADLS flow through Bronze, Silver, and Gold into Power BI, ontology, and a data agent">
+    <div class="mini-label">THE BUILD, AT A GLANCE</div>
+    <div class="source-row"><span>Azure SQL</span><span>Cosmos DB</span><span>ADLS Gen2</span></div>
+    <div class="flow-line" aria-hidden="true">&#8595; &nbsp; &nbsp; &#8595; &nbsp; &nbsp; &#8595;</div>
+    <div class="medallions"><div class="bronze"><b>01</b>Bronze<small>Connect</small></div><span aria-hidden="true">&#8594;</span><div class="silver"><b>02</b>Silver<small>Conform</small></div><span aria-hidden="true">&#8594;</span><div class="gold"><b>03</b>Gold<small>Curate</small></div></div>
+    <div class="ai-strip"><span aria-hidden="true">&#10022;</span> AI-enriched assessment appeals</div>
+    <div class="output-row"><span>Power BI</span><span>Ontology</span><span>Data agent</span></div>
+    <p>OneLake at the center. Trusted insight at the finish.</p>
+  </div>
+</section>
+
+<section id="get-ready" class="section">
+  <div class="section-heading"><div><p class="eyebrow">Before you build</p><h2>A smooth start in three steps.</h2></div><span class="section-note">New to Fabric? You're in the right place.</span></div>
+  <div class="setup-grid">
+    <article class="panel access-panel" data-access-api="{{ site.access_api_url | escape }}">
+      <div class="step-heading"><span class="step-number">01</span><h3>Get your lab account</h3></div>
+      <p>Already have a number from your facilitator? Enter it below. Otherwise, use the private event code to reserve an available account.</p>
+      <form id="manual-form">
+        <label for="user-number">Your facilitator-assigned number (1&ndash;50)</label>
+        <div class="input-action"><input id="user-number" type="number" min="1" max="50" step="1" required placeholder="e.g. 12"><button class="button secondary" type="submit">Use number</button></div>
+      </form>
+      <p class="fine-print">Manual selection does not reserve a number. Only use a number explicitly assigned to you.</p>
+      <details id="claim-details"><summary>Automatically reserve my number</summary>
+        <p id="allocation-setup" hidden>Online reservations are not configured yet. Ask your facilitator for a number and password; do not pick an unassigned number.</p>
+        <form id="claim-form" hidden>
+          <label for="event-code">Private event code</label>
+          <input id="event-code" type="password" autocomplete="off" required maxlength="256" placeholder="Provided at the event">
+          <button class="button" type="submit" id="claim-button">Reserve my account</button>
+          <p class="fine-print">Returning? Use this same browser and event code to recover your reservation. One reservation per browser, not per person.</p>
+        </form>
+      </details>
+      <p id="access-status" class="status-message" role="status" aria-live="polite"></p>
+      <div id="credentials" hidden>
+        <p class="account-label" id="account-label"></p>
+        <label for="account-upn">Entra ID username</label>
+        <div class="input-action"><input id="account-upn" type="text" readonly spellcheck="false" autocomplete="off"><button class="copy-button" type="button" data-copy="account-upn">Copy username</button></div>
+        <label for="account-password">Event password</label>
+        <div class="input-action"><input id="account-password" type="password" autocomplete="off" placeholder="Paste the password shared privately"><button class="copy-button" type="button" data-copy="account-password">Copy password</button></div>
+        <label class="check-label"><input type="checkbox" id="show-password"> Show password</label>
+        <p class="fine-print">The password stays in this tab only. It is not saved in browser storage or published with this site.</p>
+        <a class="button full-width" href="https://app.fabric.microsoft.com/" target="_blank" rel="noopener noreferrer">Open Microsoft Fabric <span aria-hidden="true">&#8599;</span></a>
+        <p class="fine-print">Use an InPrivate / Incognito window for Fabric so your normal work account does not get mixed up with the lab account.</p>
+      </div>
+      <noscript><p>Enable JavaScript for account helpers. Your facilitator can give you the complete username and password privately.</p></noscript>
+    </article>
+
+    <article class="panel">
+      <div class="step-heading"><span class="step-number">02</span><h3>Download the project</h3></div>
+      <p>Get the documents and starter notebooks in one download. No Git experience needed.</p>
+      <a class="button full-width" href="{{ site.repository_url }}/archive/refs/heads/main.zip">Download code &amp; notebooks <span aria-hidden="true">&#8595;</span></a>
+      <ol class="simple-steps"><li>Extract the ZIP to a folder you can find.</li><li>Open <code>Documents</code> for the guides.</li><li>In your Fabric workspace, select <strong>New item &rarr; Import notebook</strong> and choose a file from <code>Notebooks</code>.</li></ol>
+      <details><summary>Prefer Git? Clone the repo</summary><div class="code-copy"><code id="clone-command">git clone {{ site.repository_url }}.git</code><button class="copy-button" type="button" data-copy="clone-command">Copy command</button></div></details>
+      <p class="fine-print">Use starter notebooks first. Completed examples live in <code>Notebooks/Answers</code> when you need a hint.</p>
+    </article>
+
+    <article class="panel">
+      <div class="step-heading"><span class="step-number">03</span><h3>Check your workspace</h3></div>
+      <p>Before Goal 1, confirm these with your facilitator.</p>
+      <div class="checklist">
+        <label><input type="checkbox" data-progress="ready-signin"> I can sign in with my lab account.</label>
+        <label><input type="checkbox" data-progress="ready-workspace"> I can open the assigned workspace on a Fabric capacity.</label>
+        <label><input type="checkbox" data-progress="ready-sources"> I have the SQL, Cosmos DB, and ADLS connection details.</label>
+        <label><input type="checkbox" data-progress="ready-features"> AI functions, Ontology (preview), data agent, and required Copilot settings are enabled.</label>
+      </div>
+      <a class="text-link" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.html' | relative_url }}">Review architecture &amp; naming conventions <span aria-hidden="true">&#8594;</span></a>
+      <div class="callout">Use <code>BronzeLakehouse</code>, <code>SilverLakehouse</code>, and <code>GoldLakehouse</code>. Enable schemas for Silver and Gold.</div>
+    </article>
+  </div>
+</section>
+
+<section id="journey" class="section">
+  <div class="section-heading"><div><p class="eyebrow">Your build path</p><h2>Four goals. One connected story.</h2></div><a class="text-link" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Intro.html' | relative_url }}">Start with the scenario &#8594;</a></div>
+  <div class="progress-panel"><div><strong id="progress-label">0 of 4 goals complete</strong><span>Check the deliverables as you go. Progress is saved in this browser.</span></div><progress id="goal-progress" value="0" max="4" aria-labelledby="progress-label"></progress><button class="text-button" type="button" id="reset-progress">Reset checklist</button></div>
+  <p id="progress-status" class="status-message" role="status"></p>
+  <noscript><p>Guides and downloads work without JavaScript. Checklist progress will not be saved.</p></noscript>
+  <div class="goals">
+    {% for goal in site.data.goals %}
+    <article class="goal-card" id="goal-{{ goal.number }}">
+      <div class="goal-number" aria-hidden="true">0{{ goal.number }}</div>
+      <div class="goal-body">
+        <p class="eyebrow">Goal {{ goal.number }} <span class="layer-badge">{{ goal.layer }}</span></p>
+        <h3>{{ goal.title }}</h3><p>{{ goal.description }}</p>
+        <details><summary>What does done look like?</summary><div class="checklist">
+          {% for task in goal.tasks %}<label><input type="checkbox" data-progress="goal-{{ goal.number }}-{{ forloop.index }}" data-goal="{{ goal.number }}"> {{ task }}</label>{% endfor %}
+        </div></details>
+        {% if goal.notebooks.size > 0 %}<details><summary>Notebooks for this goal</summary><ul class="notebook-list">{% for notebook in goal.notebooks %}<li><a href="{{ site.repository_url }}/blob/main/Notebooks/{{ notebook | uri_escape }}">{{ notebook }}</a> <a class="download-link" href="https://raw.githubusercontent.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor/main/Notebooks/{{ notebook | uri_escape }}" download aria-label="Download {{ notebook | escape }}">Download</a></li>{% endfor %}</ul></details>{% endif %}
+      </div>
+      <div class="goal-action"><a class="button secondary" href="{{ goal.url | relative_url }}">Open Goal {{ goal.number }} <span aria-hidden="true">&#8594;</span></a><span class="goal-state" data-goal-state="{{ goal.number }}">Ready when you are</span></div>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="finish-banner"><div><p class="eyebrow">Bring it all together</p><h3>Your final demo: one traceable story.</h3><p>Pick a neighborhood. Find a valuation pattern. Explore related appeal themes. Traverse an ontology relationship. Explain the insight, its source keys, and its limitations.</p></div><a class="button" href="{{ '/Documents/Fabric%20Hackathon%20-%20Goal%204.html#completion-check' | relative_url }}">See the finish line &#8594;</a></div>
+</section>
+
+<section id="resources" class="section">
+  <div class="section-heading"><div><p class="eyebrow">Keep these close</p><h2>A little help along the way.</h2></div></div>
+  <div class="resource-grid">
+    <a class="resource-card" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.html' | relative_url }}"><span>01 / THE BLUEPRINT</span><h3>Architecture &amp; schemas &#8599;</h3><p>Source shapes, shared keys, and the naming contract your notebooks expect.</p></a>
+    <a class="resource-card" href="{{ site.repository_url }}/tree/main/Notebooks"><span>02 / YOUR TOOLKIT</span><h3>Notebook library &#8599;</h3><p>Starter notebooks, Copilot prompts, and an optional Foundry enrichment path.</p></a>
+    <a class="resource-card" href="{{ '/Documents/Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.html' | relative_url }}"><span>03 / THE DEEP DIVE</span><h3>Ontology field guide &#8599;</h3><p>Entity bindings, graph relationships, refresh steps, and agent evaluation.</p></a>
+    <a class="resource-card" href="https://learn.microsoft.com/fabric/"><span>04 / OFFICIAL DOCS</span><h3>Microsoft Learn &#8599;</h3><p>Fabric concepts, product documentation, and troubleshooting references.</p></a>
+  </div>
+  <details class="faq"><summary>I'm stuck. Where should I start?</summary><p>Confirm the Lakehouse names and <code>dbo</code> schema against the architecture guide. Run notebooks in order, and read the validation section at the end of your current goal. For sign-in, permissions, capacity, or source-connection issues, ask your facilitator. Compare with <a href="{{ site.repository_url }}/tree/main/Notebooks/Answers">reference notebooks</a> after trying the starter.</p></details>
+  <details class="faq"><summary>Do I need to complete the optional Foundry path?</summary><p>No. Use either built-in Fabric AI functions in notebook 3 or the alternate Foundry path in 3a. If you choose Foundry, update <code>appeal_ai_source_table</code> in notebook 4 as described in Goal 4.</p></details>
+  <div class="safety-note"><strong>A safe place to experiment.</strong> All property data is synthetic. AI outputs require human review and must not decide real assessments, taxes, or appeals. Keep account and source credentials out of notebooks, screenshots, and Git.</div>
+</section>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>{{ page.title | escape }} | Fabric Field Lab</title>
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Fabric Field Lab home"><span class="brand-mark" aria-hidden="true">F</span> Fabric <span>Field Lab</span></a>
+    <nav aria-label="Main navigation">
+      <a href="{{ '/#get-ready' | relative_url }}">Get ready</a>
+      <a href="{{ '/#journey' | relative_url }}">The goals</a>
+      <a href="{{ '/#resources' | relative_url }}">Resources</a>
+      <a class="repo-link" href="{{ site.repository_url }}">View on GitHub <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+  </header>
+  <main id="main" class="site-main" tabindex="-1">{{ content }}</main>
+  <footer class="site-footer">
+    <span>Microsoft Fabric &middot; Property Assessment Hackathon</span>
+    <span>Synthetic data. Real learning. No time limits.</span>
+  </footer>
+  <p id="global-status" class="sr-only" role="status"></p>
+</body>
+</html>

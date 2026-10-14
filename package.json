@@ -1,0 +1,22 @@
+{
+  "name": "fabric-hackathon-attendee-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["api"],
+  "scripts": {
+    "test": "node --test api/test/allocator.test.mjs api/test/http.test.mjs",
+    "test:site": "playwright test",
+    "test:storage": "node tests/storage.mjs",
+    "preview": "node tests/preview.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.51.1",
+    "azurite": "^3.34.0",
+    "lightningcss": "^1.29.2",
+    "liquidjs": "^10.21.0",
+    "markdown-it": "^14.1.0",
+    "yaml": "^2.7.0"
+  }
+}

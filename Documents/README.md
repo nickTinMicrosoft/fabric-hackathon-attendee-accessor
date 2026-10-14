@@ -13,7 +13,7 @@ created in the preceding goal.
 | 4 | [Build Gold and serve](Fabric%20Hackathon%20-%20Goal%204.md) | Business marts, semantic model, report, ontology, and data agent |
 | 4 | [Model the ontology](Fabric%20Hackathon%20-%20Goal%204%20-%20Ontology.md) | Gold entity bindings, graph relationships, and ontology-grounded questions |
 
-Import the starter notebooks from [`../Notebooks`](../Notebooks/) when directed
+Import the starter notebooks from the [notebook library](https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor/tree/main/Notebooks) when directed
 by a goal. Source connection details are supplied separately by the
 facilitator; no environment-specific server or database names are committed.
 

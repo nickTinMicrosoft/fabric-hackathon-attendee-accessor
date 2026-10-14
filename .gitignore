@@ -19,3 +19,10 @@ __pycache__/
 _site/
 .jekyll-cache/
 .sass-cache/
+
+# Attendee access service and tests
+node_modules/
+local.settings.json
+playwright-report/
+test-results/
+.azurite/

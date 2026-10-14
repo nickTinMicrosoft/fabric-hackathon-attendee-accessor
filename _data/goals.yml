@@ -1,0 +1,47 @@
+- number: 1
+  title: Bring your data together
+  layer: Bronze
+  description: Mirror Azure SQL and Cosmos DB, then connect appeal files with a OneLake shortcut.
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%201.html
+  tasks:
+    - Query a mirrored SQL assessment table.
+    - Open a Cosmos property profile and its inspections.
+    - Read the appeals Parquet file through the Bronze shortcut.
+  notebooks: []
+- number: 2
+  title: Make it trustworthy
+  layer: Silver
+  description: Build typed, deduplicated Delta tables and connect records with shared parcel keys.
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%202.html
+  tasks:
+    - Create SilverLakehouse with schemas enabled.
+    - Conform SQL data and flatten Cosmos profiles using Copilot.
+    - Load appeals, validate keys, and retain synthetic-data flags.
+  notebooks:
+    - 1 - SQL Assessment to Silver.ipynb
+    - 2 - Cosmos Property Profiles to Silver.ipynb
+    - 3 - ADLS Appeals to Silver and AI.ipynb
+- number: 3
+  title: Give appeals an AI assist
+  layer: Intelligence
+  description: Add sentiment, summaries, reason codes, and follow-up signals without changing the original narrative.
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%203.html
+  tasks:
+    - Enrich appeals with Fabric AI functions or the optional Foundry path.
+    - Measure sentiment accuracy, the confusion matrix, and failure rate.
+    - Review disagreements and preserve source lineage.
+  notebooks:
+    - 3 - ADLS Appeals to Silver and AI.ipynb
+    - 3a - ADLS Appeals with Foundry AI.ipynb
+- number: 4
+  title: Turn insight into a story
+  layer: Gold + IQ
+  description: Build business marts, a semantic model, a Power BI report, and an ontology-grounded data agent.
+  url: /Documents/Fabric%20Hackathon%20-%20Goal%204.html
+  tasks:
+    - Build Gold marts and a star-schema semantic model.
+    - Create a report and bind the four ontology entities and relationships.
+    - Validate an agent answer against Gold and demonstrate source-to-insight lineage.
+  notebooks:
+    - 4 - Property Assessment Gold Marts.ipynb
+    - 5 - Property Assessment Data Agent Lab.ipynb

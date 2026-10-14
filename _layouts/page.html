@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="guide-shell">
+  <aside class="guide-sidebar">
+    <a class="back-link" href="{{ '/#journey' | relative_url }}">&#8592; Your hackathon dashboard</a>
+    <p class="eyebrow">Your learning path</p>
+    <nav aria-label="Guide chapters">
+      {% for step in site.data.journey %}
+      {% assign decoded_url = step.url | url_decode %}
+      <a href="{{ step.url | relative_url }}"{% if page.url == decoded_url or page.url == step.url %} aria-current="page"{% endif %}><span>{{ step.label }}</span>{{ step.title }}</a>
+      {% endfor %}
+    </nav>
+    <div class="aside-note">Need help? Check the architecture naming contract, then ask your facilitator. Never paste credentials into notebooks.</div>
+  </aside>
+  <article class="guide-content">
+    <div class="guide-toolbar"><span>Field guide / {{ page.title | default: 'Resources' | escape }}</span><button type="button" class="text-button" id="print-guide">Print guide</button></div>
+    {{ content }}
+    <p class="guide-return"><a class="button secondary" href="{{ '/#journey' | relative_url }}">Back to goals &amp; progress</a></p>
+  </article>
+</div>
