@@ -5,6 +5,11 @@ title: Repository overview
 
 # Microsoft Fabric Property Assessment Hackathon
 
+> **[Open the hackathon website](https://nicktinmicrosoft.github.io/fabric-hackathon-attendee-accessor/)**
+>
+> Start here for code downloads, lab account helpers, and a guided path through
+> all four goals with saved progress checklists.
+
 Build an end-to-end analytics and AI solution using fictional property data for
 Sudsberry. You will combine synthetic valuation records, flexible inspection
 documents, and assessment appeal narratives in Microsoft Fabric.
@@ -38,11 +43,6 @@ There are no time limits. Work through the goals at your own pace and use the
 reference notebooks when you need a starting point.
 
 ## Start here
-
-**Attendee website:** [Open the guided hackathon dashboard](https://nicktinmicrosoft.github.io/fabric-hackathon-attendee-accessor/).
-It includes ZIP downloads, notebook import instructions, a browser-saved
-checklist, and a guided path through all four goals. The URL becomes live
-after the Pages deployment described below.
 
 1. Read the [Introduction](Documents/Fabric%20Hackathon%20-%200%20-%20Intro.md).
 2. Review the [Architecture and data schemas](Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.md).
