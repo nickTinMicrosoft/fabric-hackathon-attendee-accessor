@@ -29,6 +29,7 @@ exclude:
   - api/
   - tests/
   - node_modules/
+  - vendor/
   - package.json
   - package-lock.json
   - playwright.config.js
