@@ -10,6 +10,14 @@ test("homepage presents the actual goals, download, and all document links", asy
   await expect(page.getByRole("heading", { level: 1 })).toContainText("From scattered data.");
   await expect(page.locator(".goal-card")).toHaveCount(4);
   await expect(page.getByRole("link", { name: "Download code & notebooks" })).toHaveAttribute("href", /archive\/refs\/heads\/main.zip$/);
+  const portals = page.getByRole("navigation", { name: "Lab portals" });
+  for (const [name, url] of [["Open Azure portal", "https://portal.azure.com/"], ["Open Microsoft Fabric", "https://app.fabric.microsoft.com/"]]) {
+    const link = portals.getByRole("link", { name });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", url);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  }
   const links = await page.locator('a[href*="/Documents/"]').evaluateAll((items) => [...new Set(items.map((item) => item.href.split("#")[0]))]);
   for (const link of links) expect((await request.get(link)).status(), link).toBe(200);
   expect(errors).toEqual([]);
