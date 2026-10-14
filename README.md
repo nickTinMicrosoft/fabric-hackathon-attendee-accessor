@@ -129,3 +129,8 @@ not a replacement for Jekyll. For an authoritative local build, install Ruby
 and Bundler, run `bundle install` and `bundle exec jekyll build`, then set
 `SITE_DIR=_site` when running the browser tests. CI always tests real Jekyll
 output. On PowerShell use `$env:SITE_DIR = "_site"`.
+
+The custom Jekyll plugin decodes percent-escaped filenames before the bundled
+relative-link resolver looks them up. This keeps the same Markdown links usable
+on GitHub and on Pages even though the guide filenames contain spaces. Publish
+through the Actions workflow, not GitHub's restricted branch-source build.
