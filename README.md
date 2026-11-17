@@ -121,6 +121,31 @@ request a new number, and a shared account password cannot prevent attendees
 from signing into other known lab usernames. Use individual passwords and
 authenticated registration if that level of control is required.
 
+### Badge interest collection
+
+The fourth onboarding card displays the Fabric University Azure Days Hackathon
+badge. Registration remains closed until `badge_interest_form_url` in
+`_config.yml` contains an organizer-owned **Microsoft Forms response link**.
+Use the **Collect responses** URL, not an editing, collaboration, or results link.
+Rebuild and publish the site after configuring it.
+
+Create the form in an approved Microsoft 365 tenant and restrict response access
+to the designated event organizers. If attendees are external, enable **Anyone
+can respond** when permitted by tenant policy. Ask for the attendee's own
+badge-delivery email, not their temporary lab username. A typed email is not
+proof of mailbox ownership or completion; review submissions before issuance.
+
+Before opening registration, the form must explain the collecting organization,
+badge-administration purpose, any sharing with Credly, the approved retention
+period, and the deletion/contact process, and obtain the appropriate consent.
+Do not enroll respondents in marketing or publish response-summary links.
+Close collection after the event's signup window and apply the agreed retention
+policy to responses and exports.
+
+The Pages site only links to Forms. It has no email input, collection API,
+tracking token, or credentials for this feature. Never commit responses or email
+exports to this repository. Submitting interest does not itself award a badge.
+
 ## Website development and validation
 
 Requires Node.js 22+. Run `npm ci`, `npm test`, `npm run test:storage`, then

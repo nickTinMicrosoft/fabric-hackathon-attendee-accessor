@@ -22,7 +22,7 @@ title: Your hackathon starts here
 </section>
 
 <section id="get-ready" class="section">
-  <div class="section-heading"><div><p class="eyebrow">Before you build</p><h2>A smooth start in three steps.</h2></div><span class="section-note">New to Fabric? You're in the right place.</span></div>
+  <div class="section-heading"><div><p class="eyebrow">Before you build</p><h2>Get ready. Build. Celebrate.</h2></div><span class="section-note">New to Fabric? You're in the right place.</span></div>
   <nav class="actions" aria-label="Lab portals">
     <a class="button secondary" href="https://portal.azure.com/" target="_blank" rel="noopener noreferrer">Open Azure portal <span aria-hidden="true">&#8599;</span></a>
     <a class="button secondary" href="https://app.fabric.microsoft.com/" target="_blank" rel="noopener noreferrer">Open Microsoft Fabric <span aria-hidden="true">&#8599;</span></a>
@@ -80,6 +80,21 @@ title: Your hackathon starts here
       </div>
       <a class="text-link" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Architecture.html' | relative_url }}">Review architecture &amp; naming conventions <span aria-hidden="true">&#8594;</span></a>
       <div class="callout">Use <code>BronzeLakehouse</code>, <code>SilverLakehouse</code>, and <code>GoldLakehouse</code>. Enable schemas for Silver and Gold.</div>
+    </article>
+
+    <article class="panel badge-panel" id="badge-interest" aria-labelledby="badge-interest-title">
+      <div class="step-heading"><span class="step-number">04</span><h3 id="badge-interest-title">Work toward your hackathon badge</h3></div>
+      <img class="hackathon-badge" src="{{ '/assets/azure-days-hackathon-badge.png' | relative_url }}" width="600" height="600" loading="lazy" decoding="async" alt="Fabric University Azure Days Hackathon badge: a green-and-gold shield with a connected data campus">
+      <p>Interested in earning the <strong>Fabric University Azure Days Hackathon</strong> badge? Share the email address where you would like to receive your badge invitation.</p>
+      <p class="fine-print">Registering interest does not award a badge. The event team must first verify that you meet the completion requirements.</p>
+      {% assign badge_form_url = site.badge_interest_form_url | default: '' | strip %}
+      {% if badge_form_url != '' %}
+      <a class="button full-width" href="{{ badge_form_url | escape }}" target="_blank" rel="noopener noreferrer">Register your interest <span aria-hidden="true">&#8599;</span></a>
+      <p class="fine-print">Opens Microsoft Forms. Use your own badge-delivery email, not your temporary lab username. Review the form's privacy notice and consent before submitting. No marketing signup.</p>
+      {% else %}
+      <button class="button full-width" type="button" disabled aria-describedby="badge-registration-status">Registration opens soon</button>
+      <p class="fine-print" id="badge-registration-status">Email registration is not open yet. Please check back or ask your facilitator. This page is not collecting email addresses.</p>
+      {% endif %}
     </article>
   </div>
 </section>

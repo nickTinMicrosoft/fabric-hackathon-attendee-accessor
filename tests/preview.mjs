@@ -9,7 +9,7 @@ import { parse } from "yaml";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const config = parse(await readFile(path.join(root, "_config.yml"), "utf8"));
 const base = config.baseurl;
-const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".ipynb": "application/json" };
+const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".ipynb": "application/json" };
 const engine = new Liquid();
 engine.registerFilter("relative_url", (value) => `${base}${value}`);
 engine.registerFilter("uri_escape", (value) => encodeURI(value));

@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFile, readdir } from "node:fs/promises";
 import { transform } from "lightningcss";
+import { Liquid } from "liquidjs";
 
 test("homepage presents the actual goals, download, and all document links", async ({ page, request }) => {
   const errors = [];
@@ -37,6 +38,43 @@ test("manual credential helper uses the event UPN and never persists passwords",
   await expect(page.locator("#access-status")).toContainText("does not create or reserve an account");
   await page.reload();
   await expect(page.locator("#credentials")).toBeHidden();
+});
+
+test("fourth onboarding card shows the badge but cannot collect emails before Forms is configured", async ({ page, request }) => {
+  await page.goto("./");
+  await expect(page.locator(".setup-grid > .panel")).toHaveCount(4);
+  const card = page.getByRole("article", { name: "Work toward your hackathon badge" });
+  const badge = card.getByRole("img", { name: /Fabric University Azure Days Hackathon badge/ });
+  await badge.scrollIntoViewIfNeeded();
+  await expect(badge).toBeVisible();
+  await expect(badge).toHaveJSProperty("naturalWidth", 600);
+  await expect(badge).toHaveJSProperty("naturalHeight", 600);
+  const asset = await request.get(await badge.getAttribute("src"));
+  expect(asset.status()).toBe(200);
+  expect(asset.headers()["content-type"]).toContain("image/png");
+  await expect(card.getByRole("button", { name: "Registration opens soon" })).toBeDisabled();
+  await expect(card).toContainText("This page is not collecting email addresses");
+  await expect(card).toContainText("Registering interest does not award a badge");
+  await expect(card.locator("form, input, iframe, a[href]")).toHaveCount(0);
+});
+
+test("configured badge registration links to Forms without collecting email on Pages", async ({ page }) => {
+  const engine = new Liquid();
+  engine.registerFilter("relative_url", (value) => `/fabric-hackathon-attendee-accessor${value}`);
+  const source = await readFile(new URL("../index.html", import.meta.url), "utf8");
+  const formUrl = "https://forms.office.com/r/test-response-link";
+  const html = await engine.parseAndRender(source, {
+    site: { badge_interest_form_url: ` ${formUrl} `, data: { goals: [] } }
+  });
+  await page.setContent(html);
+  const card = page.getByRole("article", { name: "Work toward your hackathon badge" });
+  const signup = card.getByRole("link", { name: "Register your interest" });
+  await expect(signup).toHaveAttribute("href", formUrl);
+  await expect(signup).toHaveAttribute("target", "_blank");
+  await expect(signup).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(card).toContainText("privacy notice and consent");
+  await expect(card.getByRole("button", { name: "Registration opens soon" })).toHaveCount(0);
+  await expect(card.locator("form, input, iframe")).toHaveCount(0);
 });
 
 test("username generation accepts any digit sequence without a pool limit or precision loss", async ({ page }) => {

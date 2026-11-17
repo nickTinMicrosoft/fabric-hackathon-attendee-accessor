@@ -401,7 +401,7 @@ img {
 }
 
 .setup-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 1.2rem;
   display: grid;
@@ -418,6 +418,17 @@ img {
 
 .panel > p {
   color: var(--muted);
+}
+
+.hackathon-badge {
+  display: block;
+  width: min(100%, 240px);
+  height: auto;
+  margin: 1.2rem auto;
+}
+
+.badge-panel .button:disabled {
+  cursor: not-allowed;
 }
 
 .step-heading {
@@ -1009,14 +1020,6 @@ progress::-webkit-progress-value {
     gap: 2rem;
   }
 
-  .setup-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .setup-grid > .panel:last-child {
-    grid-column: 1 / -1;
-  }
-
   .resource-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1091,10 +1094,6 @@ progress::-webkit-progress-value {
 
   .setup-grid, .resource-grid {
     grid-template-columns: 1fr;
-  }
-
-  .setup-grid > .panel:last-child {
-    grid-column: auto;
   }
 
   .goal-card {

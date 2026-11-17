@@ -10,6 +10,8 @@ plugins:
   - jekyll-readme-index
   - jekyll-titles-from-headings
 access_api_url: ""
+# Organizer-owned Microsoft Forms response link; leave blank to keep collection closed.
+badge_interest_form_url: ""
 repository_url: https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor
 defaults:
   - scope:
