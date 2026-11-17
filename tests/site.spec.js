@@ -23,22 +23,57 @@ test("homepage presents the actual goals, download, and all document links", asy
   expect(errors).toEqual([]);
 });
 
-test("manual credential helper validates range, uses exact UPN, and never persists passwords", async ({ page }) => {
+test("manual credential helper uses the event UPN and never persists passwords", async ({ page }) => {
   await page.goto("./");
-  await page.locator("#user-number").fill("12");
+  await page.locator("#user-number").fill("5");
   await page.getByRole("button", { name: "Use number" }).click();
-  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User12.malv26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User5.arl26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#account-label")).toHaveText("User 5 / Username generated");
   await expect(page.locator("#account-password")).toHaveAttribute("type", "password");
   await page.locator("#account-password").fill("private-test-value");
   await page.getByLabel("Show password", { exact: true }).check();
   await expect(page.locator("#account-password")).toHaveAttribute("type", "text");
   expect(await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage } }))).not.toContain("private-test-value");
-  await expect(page.locator("#access-status")).toContainText("not an online reservation");
+  await expect(page.locator("#access-status")).toContainText("does not create or reserve an account");
   await page.reload();
   await expect(page.locator("#credentials")).toBeHidden();
-  await page.locator("#user-number").fill("51");
+});
+
+test("username generation accepts any digit sequence without a pool limit or precision loss", async ({ page }) => {
+  await page.goto("./");
+  for (const number of ["0", "51", "999", "005", "90071992547409931234567890"]) {
+    await page.locator("#user-number").fill(number);
+    await page.getByRole("button", { name: "Use number" }).click();
+    await expect(page.locator("#account-upn")).toHaveValue(`Fabric.User${number}.arl26@estdcorp.onmicrosoft.com`);
+    await expect(page.locator("#account-label")).not.toContainText("of 50");
+  }
+});
+
+test("username generation rejects non-digit input and empty values", async ({ page }) => {
+  await page.goto("./");
+  for (const number of ["", "-1", "1.5", "1e3", "abc", "<script>"]) {
+    await page.locator("#user-number").fill(number);
+    await page.getByRole("button", { name: "Use number" }).click();
+    await expect(page.locator("#credentials")).toBeHidden();
+    expect(await page.locator("#user-number").evaluate((input) => input.validity.valid)).toBe(false);
+    await page.locator("#manual-form").dispatchEvent("submit");
+    await expect(page.locator("#access-status")).toContainText("digits only");
+  }
+});
+
+test("copy username copies the generated event address", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async (text) => { window.copiedUsername = text; } }
+    });
+  });
+  await page.goto("./");
+  await page.locator("#user-number").fill("5");
   await page.getByRole("button", { name: "Use number" }).click();
-  await expect(page.locator("#credentials")).toBeHidden();
+  await page.getByRole("button", { name: "Copy username", exact: true }).click();
+  expect(await page.evaluate(() => window.copiedUsername)).toBe("Fabric.User5.arl26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#global-status")).toContainText("username copied");
 });
 
 test("unconfigured allocation is explicit and never guesses or assigns a number", async ({ page }) => {
@@ -115,7 +150,7 @@ test("online claim returns credentials, recovers token, and disables manual swit
     await route.fulfill({ json: { number: 24, password: "runtime-test-secret" } });
   });
   await page.locator("#claim-button").click();
-  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User24.malv26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User24.arl26@estdcorp.onmicrosoft.com");
   await expect(page.locator("#account-password")).toHaveValue("runtime-test-secret");
   await expect(page.locator("#user-number")).toBeDisabled();
   await expect(page.locator("#event-code")).toHaveValue("");
@@ -124,7 +159,7 @@ test("online claim returns credentials, recovers token, and disables manual swit
   await page.locator("#claim-details summary").click();
   await page.locator("#event-code").fill("test-code-not-production");
   await page.locator("#claim-button").click();
-  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User24.malv26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User24.arl26@estdcorp.onmicrosoft.com");
   expect(tokens).toHaveLength(2);
   expect(tokens[0]).toBe(tokens[1]);
 });
@@ -164,8 +199,8 @@ test("two simultaneous tabs share a single reservation token", async ({ page, co
   await configureApi(page, respond);
   await configureApi(other, respond);
   await Promise.all([page.locator("#claim-button").click(), other.locator("#claim-button").click()]);
-  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User7.malv26@estdcorp.onmicrosoft.com");
-  await expect(other.locator("#account-upn")).toHaveValue("Fabric.User7.malv26@estdcorp.onmicrosoft.com");
+  await expect(page.locator("#account-upn")).toHaveValue("Fabric.User7.arl26@estdcorp.onmicrosoft.com");
+  await expect(other.locator("#account-upn")).toHaveValue("Fabric.User7.arl26@estdcorp.onmicrosoft.com");
   expect(tokens).toHaveLength(2);
   expect(new Set(tokens).size).toBe(1);
   await other.close();

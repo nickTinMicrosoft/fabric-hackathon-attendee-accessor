@@ -91,8 +91,10 @@
   let reservedNumber = null;
   const showAccount = (number, secret = "", reserved = false) => {
     document.getElementById("credentials").hidden = false;
-    document.getElementById("account-upn").value = `Fabric.User${number}.malv26@estdcorp.onmicrosoft.com`;
-    document.getElementById("account-label").textContent = `User ${number} of 50${reserved ? " / Reserved for this browser" : " / Facilitator-assigned"}`;
+    document.getElementById("account-upn").value = `Fabric.User${number}.arl26@estdcorp.onmicrosoft.com`;
+    document.getElementById("account-label").textContent = reserved
+      ? `User ${number} of 50 / Reserved for this browser`
+      : `User ${number} / Username generated`;
     password.value = secret;
     if (reserved) {
       reservedNumber = number;
@@ -107,13 +109,13 @@
   manualForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (reservedNumber !== null) return;
-    const number = Number(document.getElementById("user-number").value);
-    if (!Number.isInteger(number) || number < 1 || number > 50) {
-      announce("access-status", "Enter a whole user number from 1 to 50.", true);
+    const number = document.getElementById("user-number").value.trim();
+    if (!/^[0-9]+$/.test(number)) {
+      announce("access-status", "Enter a user number using digits only.", true);
       return;
     }
     showAccount(number);
-    announce("access-status", "Username ready. Paste the password provided privately by your facilitator. This is not an online reservation.");
+    announce("access-status", "Username ready to copy. This does not create or reserve an account. Use the password provided privately by your facilitator.");
   });
 
   const api = panel.dataset.accessApi;

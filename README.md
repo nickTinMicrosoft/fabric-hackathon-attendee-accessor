@@ -103,6 +103,11 @@ The static site works without an access service: facilitators privately assign
 numbers and passwords, and attendees use the username/copy helper. No password
 is stored in the repository, page source, or browser storage.
 
+The username helper accepts any sequence of digits with no 1-50 limit. For
+example, `5` generates `Fabric.User5.arl26@estdcorp.onmicrosoft.com`. It preserves
+leading zeros and long numbers exactly. Generating a username does not create,
+validate, or reserve an account.
+
 **Automatic assignment requires a backend.** GitHub Pages cannot atomically
 reserve accounts. The optional [Azure access service](https://github.com/nickTinMicrosoft/fabric-hackathon-attendee-accessor/blob/main/api/README.md) uses
 transactional claims to allocate numbers 1-50 without duplicate assignments,

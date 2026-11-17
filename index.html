@@ -8,7 +8,7 @@ title: Your hackathon starts here
     <h1>From scattered data.<br>To a story that <em>matters.</em></h1>
     <p class="hero-description">Welcome to Sudsberry. Bring property records, inspections, and appeals together. Build trusted analytics. Give your data a voice with AI.</p>
     <div class="actions"><a class="button" href="#get-ready">Let's get you ready <span aria-hidden="true">&#8594;</span></a><a class="button secondary" href="{{ '/Documents/Fabric%20Hackathon%20-%200%20-%20Intro.html' | relative_url }}">Read the introduction</a></div>
-    <div class="hero-meta"><span>4 connected goals</span><span>50 lab accounts</span><span>Your pace, no timer</span></div>
+    <div class="hero-meta"><span>4 connected goals</span><span>Copy-ready usernames</span><span>Your pace, no timer</span></div>
   </div>
   <div class="architecture-card" aria-label="Lab architecture: SQL, Cosmos DB, and ADLS flow through Bronze, Silver, and Gold into Power BI, ontology, and a data agent">
     <div class="mini-label">THE BUILD, AT A GLANCE</div>
@@ -30,12 +30,12 @@ title: Your hackathon starts here
   <div class="setup-grid">
     <article class="panel access-panel" data-access-api="{{ site.access_api_url | escape }}">
       <div class="step-heading"><span class="step-number">01</span><h3>Get your lab account</h3></div>
-      <p>Already have a number from your facilitator? Enter it below. Otherwise, use the private event code to reserve an available account.</p>
+      <p>Enter your event user number to generate a username you can copy. If online reservations are enabled, you can also use your private event code to reserve an account.</p>
       <form id="manual-form">
-        <label for="user-number">Your facilitator-assigned number (1&ndash;50)</label>
-        <div class="input-action"><input id="user-number" type="number" min="1" max="50" step="1" required placeholder="e.g. 12"><button class="button secondary" type="submit">Use number</button></div>
+        <label for="user-number">Your user number</label>
+        <div class="input-action"><input id="user-number" type="text" inputmode="numeric" pattern="[0-9]+" required placeholder="e.g. 5" aria-describedby="user-number-help"><button class="button secondary" type="submit">Use number</button></div>
       </form>
-      <p class="fine-print">Manual selection does not reserve a number. Only use a number explicitly assigned to you.</p>
+      <p class="fine-print" id="user-number-help">Enter any whole number using digits only. This only formats a username; it does not create, validate, or reserve an account.</p>
       <details id="claim-details"><summary>Automatically reserve my number</summary>
         <p id="allocation-setup" hidden>Online reservations are not configured yet. Ask your facilitator for a number and password; do not pick an unassigned number.</p>
         <form id="claim-form" hidden>
